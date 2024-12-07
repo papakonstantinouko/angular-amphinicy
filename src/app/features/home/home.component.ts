@@ -1,8 +1,8 @@
 import { Component, effect, inject, signal } from '@angular/core';
-import { ModalComponent } from '../shared/ui/modal.component';
-import { FormComponent } from '../shared/ui/form.component';
 import { FormBuilder, Validators } from '@angular/forms';
-import { TodoService } from '../shared/data-access/todo.service';
+import { ModalComponent } from '@ui/modal.component';
+import { FormComponent } from '@ui/form.component';
+import { TodoService } from '@data-access/todo.service';
 import { TodoListComponent } from './ui/todo-list.component';
 
 @Component({
@@ -32,13 +32,11 @@ import { TodoListComponent } from './ui/todo-list.component';
   styles: ``,
 })
 export default class HomeComponent {
-  #fb = inject(FormBuilder);
   todoSrv = inject(TodoService);
-
-  openModal = signal(false);
-  todoForm = this.#fb.nonNullable.group({
+  todoForm = inject(FormBuilder).nonNullable.group({
     title: ['', Validators.required],
   });
+  openModal = signal(false);
 
   resetForm = effect(() => !this.openModal() && this.todoForm.reset());
 

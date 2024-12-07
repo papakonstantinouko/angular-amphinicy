@@ -1,6 +1,6 @@
 import { Component, input } from '@angular/core';
-import { Todo } from '../../shared/interfaces/todo';
 import { RouterLink } from '@angular/router';
+import { Todo } from '@interfaces/todo';
 
 @Component({
   selector: 'app-todo-item-header',

@@ -1,10 +1,10 @@
 import { effect, inject, Injectable, signal } from '@angular/core';
 import { Subject, take } from 'rxjs';
-import { TodoItem } from '../../shared/interfaces/todo-item';
+import { TodoItem } from '@interfaces/todo-item';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { StorageService } from '../../shared/data-access/storage.service';
-import { TodoService } from '../../shared/data-access/todo.service';
-import { RemoveTodo } from '../../shared/interfaces/todo';
+import { StorageService } from '@data-access/storage.service';
+import { TodoService } from '@data-access/todo.service';
+import { RemoveTodo } from '@interfaces/todo';
 
 @Injectable({
   providedIn: 'root',

@@ -1,6 +1,6 @@
 import { Component, inject, input, output, signal } from '@angular/core';
-import { ModalComponent } from '../../shared/ui/modal.component';
-import { FormComponent } from '../../shared/ui/form.component';
+import { ModalComponent } from '@ui/modal.component';
+import { FormComponent } from '@ui/form.component';
 import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
@@ -20,8 +20,7 @@ import { FormBuilder, Validators } from '@angular/forms';
   `,
 })
 export class TodoItemAddComponent {
-  #fb = inject(FormBuilder);
-  itemsForm = this.#fb.nonNullable.group({
+  itemsForm = inject(FormBuilder).nonNullable.group({
     title: ['', Validators.required],
   });
   openModal = signal(false);

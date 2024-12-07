@@ -1,7 +1,7 @@
 import { Component, computed, inject } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ActivatedRoute } from '@angular/router';
-import { TodoService } from '../shared/data-access/todo.service';
+import { TodoService } from '@data-access/todo.service';
 import { TodoItemHeaderComponent } from './ui/todo-item-header.component';
 import { TodoItemAddComponent } from './ui/todo-item-add.component';
 import { TodoItemListComponent } from './ui/todo-item-list.component';
@@ -26,9 +26,8 @@ import { TodoItemService } from './data-access/todo-item.service';
   `,
 })
 export default class TodoComponent {
-  #route = inject(ActivatedRoute);
   #todoSrv = inject(TodoService);
-  #paramMap = toSignal(this.#route.paramMap);
+  #paramMap = toSignal(inject(ActivatedRoute).paramMap);
   #todoItemSrv = inject(TodoItemService);
 
   todo = computed(() =>

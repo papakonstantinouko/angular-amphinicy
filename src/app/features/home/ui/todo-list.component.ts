@@ -1,5 +1,5 @@
 import { Component, input, output } from '@angular/core';
-import { RemoveTodo, Todo } from '../../shared/interfaces/todo';
+import { RemoveTodo, Todo } from '@interfaces/todo';
 import { RouterLink } from '@angular/router';
 
 @Component({
